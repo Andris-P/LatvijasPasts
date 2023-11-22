@@ -2,6 +2,7 @@
 using LatvijasPasts.Core.Services;
 using LatvijasPasts.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
 namespace LatvijasPasts.Controllers
@@ -71,6 +72,25 @@ namespace LatvijasPasts.Controllers
 
                 _cvService.Update(existingCv);
             }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(CvItemViewModel cv)
+        {
+            _cvService.Create(new CurriculumVitae
+            {
+                Email = cv.Name,
+                FirstName = cv.Name,
+                LastName = cv.LastName,
+                OtherName = cv.Othername,
+                PhoneNumber = cv.PhoneNumber
+            });
             return RedirectToAction("Index");
         }
 
