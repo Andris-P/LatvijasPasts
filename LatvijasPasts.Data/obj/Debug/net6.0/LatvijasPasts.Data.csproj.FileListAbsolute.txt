@@ -1,0 +1,17 @@
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\bin\Debug\net6.0\LatvijasPasts.Data.deps.json
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\bin\Debug\net6.0\LatvijasPasts.Data.runtimeconfig.json
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\bin\Debug\net6.0\LatvijasPasts.Data.dll
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\bin\Debug\net6.0\LatvijasPasts.Data.pdb
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\bin\Debug\net6.0\LatvijasPasts.Core.dll
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\bin\Debug\net6.0\LatvijasPasts.Core.pdb
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.csproj.AssemblyReference.cache
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.AssemblyInfoInputs.cache
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.AssemblyInfo.cs
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.csproj.CoreCompileInputs.cache
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.csproj.CopyComplete
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.dll
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\refint\LatvijasPasts.Data.dll
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.pdb
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\LatvijasPasts.Data.genruntimeconfig.cache
+C:\Users\Poga\Desktop\LatvijasPasts\LatvijasPasts.Data\obj\Debug\net6.0\ref\LatvijasPasts.Data.dll
