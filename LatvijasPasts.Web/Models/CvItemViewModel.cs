@@ -8,7 +8,7 @@
 
         public string? Email { get; set; }
         public string? LastName { get; internal set; }
-        public string? Othername { get; internal set; }
+        public string? OtherName { get; internal set; }
         public string? PhoneNumber { get; internal set; }
     }
 }

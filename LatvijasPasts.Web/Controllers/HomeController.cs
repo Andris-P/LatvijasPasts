@@ -26,7 +26,10 @@ namespace LatvijasPasts.Controllers
             {
                 Email = cv.Email,
                 Id = cv.Id,
-                Name = cv.FirstName
+                Name = cv.FirstName,
+                LastName = cv.LastName,
+                PhoneNumber = cv.PhoneNumber,
+                OtherName = cv.OtherName
             }).ToList();
 
             return View(cvList);
@@ -53,6 +56,9 @@ namespace LatvijasPasts.Controllers
                 var model = new CvItemViewModel
                 {
                     Name = cv.FirstName,
+                    LastName = cv.LastName,
+                    OtherName = cv.OtherName,
+                    PhoneNumber = cv.PhoneNumber,
                     Email = cv.Email,
                     Id = cv.Id
                 };
@@ -69,7 +75,9 @@ namespace LatvijasPasts.Controllers
             {
                 existingCv.Email = cv.Email;
                 existingCv.FirstName = cv.Name;
-
+                existingCv.LastName = cv.LastName;
+                existingCv.OtherName = cv.OtherName;
+                existingCv.PhoneNumber = cv.PhoneNumber;
                 _cvService.Update(existingCv);
             }
             return RedirectToAction("Index");
@@ -85,10 +93,10 @@ namespace LatvijasPasts.Controllers
         {
             _cvService.Create(new CurriculumVitae
             {
-                Email = cv.Name,
+                Email = cv.Email,
                 FirstName = cv.Name,
                 LastName = cv.LastName,
-                OtherName = cv.Othername,
+                OtherName = cv.OtherName,
                 PhoneNumber = cv.PhoneNumber
             });
             return RedirectToAction("Index");
