@@ -30,18 +30,47 @@
         @Html.LabelFor(m => m.Email, "E-mail")
         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
     </div>
-    @foreach (var language in Model.LanguageKnowledge)
+    <div id="language_section_@Model.LanguageKnowledge.Count">
+    @for (var i = 0; i < Model.LanguageKnowledge.Count; i++)
     {
         <div class="mb-3">
-            @Html.Label(language.Language, "Language")
-            @Html.TextBox(language.Language, new { @class = "form-control" })
+            @Html.LabelFor(m => m.LanguageKnowledge[i].Language, "Language")
+            @Html.TextBoxFor(m => m.LanguageKnowledge[i].Language, new { @class = "form-control" })
         </div>
         <div class="mb-3">
-            @Html.Label(language.LanguageLevel.ToString(), "Language")
-            <select asp-for="@language.LanguageLevel" asp-items="Html.GetEnumSelectList<KnowledgeLevel>()">
+            @Html.LabelFor(m => m.LanguageKnowledge, "Language knowledge level")
+            <select asp-for="@Model.LanguageKnowledge[i].LanguageLevel" asp-items="Html.GetEnumSelectList<KnowledgeLevel>()">
                 <option value="">Please select</option>
             </select>
         </div>
     }
+    </div>
     <button type="submit" class="btn btn-primary">Update</button>
+}
+
+<div style="display:none" id="hidden_form">
+    <div class="mb-3">
+        <label for="LanguageKnowledge_0__Language">Language</label>
+        <input class="form-control" id="LanguageKnowledge_0__Language" name="LanguageKnowledge[0].Language" type="text" value="Angļu">
+    </div>
+    <label for="LanguageKnowledge">Language knowledge level</label>
+    <select data-val="true" data-val-required="The LanguageLevel field is required." id="LanguageKnowledge_0__LanguageLevel" name="LanguageKnowledge[0].LanguageLevel">
+        <option selected="selected" value="">Please select</option>
+        <option value="1">Beginner</option>
+        <option value="2">Intermediate</option>
+        <option value="3">Professional</option>
+        <option value="4">Native</option>
+    </select>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            const div = $('#language_section_' + @Model.LanguageKnowledge.Count)
+            const hiddenForm = $('#hidden_form');
+            $(div).append(hiddenForm)
+            console.log(div)
+        })
+    </script>
 }
