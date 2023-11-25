@@ -2,6 +2,7 @@
 using LatvijasPasts.Core.Services;
 using LatvijasPasts.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
@@ -20,7 +21,7 @@ namespace LatvijasPasts.Controllers
 
         public IActionResult Index()
         {
-            var cvs = _cvService.Get();
+            var cvs = _cvService.Query().Include(cv => cv.LanguageKnowledges).ToList();
             var cvList = new CvListViewModel();
             cvList.CvItems = cvs.Select(cv => new CvItemViewModel
             {
@@ -29,7 +30,14 @@ namespace LatvijasPasts.Controllers
                 Name = cv.FirstName,
                 LastName = cv.LastName,
                 PhoneNumber = cv.PhoneNumber,
-                OtherName = cv.OtherName
+                OtherName = cv.OtherName,
+                LanguageKnowledge = cv.LanguageKnowledges.Select(l => new LanguageKnowledgeViewModel
+                {
+                    CurriculumVitaeId = cv.Id,
+                    Id = l.Id,
+                    Language = l.Language,
+                    LanguageLevel = l.LanguageLevel,
+                }).ToList()
             }).ToList();
 
             return View(cvList);
@@ -50,7 +58,7 @@ namespace LatvijasPasts.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var cv = _cvService.GetById(id);
+            var cv = _cvService.QueryById(id).Include(cv => cv.LanguageKnowledges).SingleOrDefault();
             if (cv != null)
             {
                 var model = new CvItemViewModel
@@ -60,7 +68,14 @@ namespace LatvijasPasts.Controllers
                     OtherName = cv.OtherName,
                     PhoneNumber = cv.PhoneNumber,
                     Email = cv.Email,
-                    Id = cv.Id
+                    Id = cv.Id,
+                    LanguageKnowledge = cv.LanguageKnowledges.Select(l => new LanguageKnowledgeViewModel
+                    {
+                        CurriculumVitaeId = cv.Id,
+                        Id = l.Id,
+                        Language = l.Language,
+                        LanguageLevel = l.LanguageLevel
+                    }).ToList()
                 };
                 return View(model);
             }
@@ -77,7 +92,7 @@ namespace LatvijasPasts.Controllers
                 existingCv.FirstName = cv.Name;
                 existingCv.LastName = cv.LastName;
                 existingCv.OtherName = cv.OtherName;
-                existingCv.PhoneNumber = cv.PhoneNumber;
+                existingCv.PhoneNumber = cv.PhoneNumber; 
                 _cvService.Update(existingCv);
             }
             return RedirectToAction("Index");

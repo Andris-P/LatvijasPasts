@@ -1,4 +1,5 @@
-﻿@model CvItemViewModel
+﻿@using LatvijasPasts.Core.Enums;
+@model CvItemViewModel
 
 @{
     ViewBag.Title = $"Edit {Model.Name} CV";
@@ -29,5 +30,18 @@
         @Html.LabelFor(m => m.Email, "E-mail")
         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
     </div>
+    @foreach (var language in Model.LanguageKnowledge)
+    {
+        <div class="mb-3">
+            @Html.Label(language.Language, "Language")
+            @Html.TextBox(language.Language, new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            @Html.Label(language.LanguageLevel.ToString(), "Language")
+            <select asp-for="@language.LanguageLevel" asp-items="Html.GetEnumSelectList<KnowledgeLevel>()">
+                <option value="">Please select</option>
+            </select>
+        </div>
+    }
     <button type="submit" class="btn btn-primary">Update</button>
 }

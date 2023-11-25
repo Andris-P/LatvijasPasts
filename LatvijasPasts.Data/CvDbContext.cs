@@ -10,5 +10,6 @@ namespace LatvijasPasts.Data
         }
 
         DbSet<CurriculumVitae> CurriculumVitae { get; set; }
+        DbSet<LanguageKnowledge> LanguageKnowledges { get; set; }
     }
 }
